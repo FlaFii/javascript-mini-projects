@@ -1,0 +1,246 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	font-size: 62.5%;
+	--first-color: #c11720;
+	--second-color: #faf8f3;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 100vh;
+	font-family: "Montserrat", sans-serif;
+	background-color: #080818;
+}
+
+.wrapper {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	padding: 4em;
+	width: min(800px, 90%);
+	background-color: #171745;
+	color: #fff;
+	border-radius: 12px;
+}
+.info-buttons {
+	display: flex;
+	gap: 1em;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	top: 6px;
+	right: 14px;
+	margin: 0.4em;
+	font-size: 2.4rem;
+}
+.info-brush,
+.info-question {
+	padding: 0.2em;
+	font-size: 2.2rem;
+	color: var(--second-color);
+	border: none;
+	background: none;
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
+.info-brush i:hover,
+.info-question i:hover {
+	color: var(--first-color);
+}
+.color-selector {
+	position: absolute;
+	right: 20px;
+	top: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	width: 50px;
+	height: 250px;
+	opacity: 0;
+	z-index: -1;
+}
+.color-selector-animation {
+	animation: color-pallette 1s 1 both;
+}
+.color-ring {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid;
+	cursor: pointer;
+}
+.color-settings .fa-gear {
+	font-size: 4rem;
+	color: var(--second-color);
+	transition: color 0.3s;
+	cursor: pointer;
+}
+.color-settings .fa-gear:hover {
+	color: var(--first-color);
+}
+.color-ring.one {
+	background-color: #c11720;
+	border-color: #a50b12;
+	box-shadow: 0 0 10px #c11720;
+}
+.color-ring.two {
+	background-color: #22a40b;
+	border-color: #1e8f0a;
+	box-shadow: 0 0 10px #22a40b;
+}
+.color-ring.three {
+	background-color: #a30db1;
+	border-color: #880a93;
+	box-shadow: 0 0 10px #a30db1;
+}
+#color {
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
+}
+h1 {
+	margin-bottom: 0.6em;
+	font-size: 6rem;
+	font-weight: lighter;
+}
+.stopwatch {
+	font-size: 7.2rem;
+	color: var(--first-color);
+	font-family: monospace;
+}
+.time {
+	visibility: hidden;
+	color: var(--second-color);
+	font-size: 2.2rem;
+}
+.time-show {
+	visibility: visible;
+}
+.buttons {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	margin: 2em;
+}
+.stoper-btn {
+	margin: 0.6em;
+	padding: 0.8em 1.6em;
+	width: 20%;
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	color: var(--first-color);
+	transition:
+		color 0.3s,
+		background-color 0.3s;
+}
+.stoper-btn:hover,
+.stoper-btn:focus {
+	color: var(--second-color);
+	background-color: var(--first-color);
+	outline: none;
+}
+.history {
+	flex-grow: 1;
+	text-transform: uppercase;
+}
+.time-list li {
+	display: flex;
+	justify-content: space-between;
+	width: 300px;
+	font-size: 2.2rem;
+	color: var(--second-color);
+}
+.time-list span {
+	font-weight: bold;
+}
+.modal-shadow {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.65);
+}
+.hide-modal {
+	display: none;
+}
+.modal {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 600px;
+	height: 360px;
+	padding: 2em 4em;
+	border-radius: 12px;
+	background-color: var(--second-color);
+}
+.modal h3 {
+	font-size: 3rem;
+	margin-bottom: 0.6em;
+}
+.modal p {
+	margin-bottom: 0.8em;
+	margin-left: 1.6em;
+	font-size: 2rem;
+}
+.modal .fas,
+.modal span {
+	color: var(--first-color);
+}
+.modal span {
+	font-weight: bold;
+}
+.modal .close {
+	display: block;
+	margin: 2.8em auto 0;
+	width: 200px;
+	background-color: var(--first-color);
+	color: var(--second-color);
+	border: 2px solid transparent;
+	transition:
+		color 0.3s,
+		background-color 0.3s;
+}
+.modal .close:hover {
+	color: var(--first-color);
+	background-color: var(--second-color);
+	border: 2px solid var(--first-color);
+}
+.modal-animation {
+	animation: show-modal 0.5s;
+}
+@keyframes color-pallette {
+	0% {
+		right: 20px;
+		opacity: 0;
+		z-index: -1;
+	}
+	50% {
+		right: -60px;
+		opacity: 0.5;
+		z-index: -1;
+	}
+	100% {
+		right: 20px;
+		opacity: 1;
+		z-index: 1;
+	}
+}
+@keyframes show-modal {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}

@@ -1,0 +1,84 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	font-size: 62.5%;
+	font-family: "Montserrat", sans-serif;
+	background: linear-gradient(#ed054f, #ee3722dc);
+}
+.wrapper {
+	width: 800px;
+	background-color: #fff6e8;
+	box-shadow: 0 0 10px #1f1f1f;
+}
+.header {
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	align-items: flex-start;
+	flex-direction: column;
+	height: 360px;
+	padding: 2em 4em;
+	background-image: url("./img/pistachios-3450670_1280.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	z-index: 0;
+}
+.header::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background-color: #0000005c;
+	z-index: 5;
+}
+.header__title {
+	margin-bottom: 0.5em;
+	color: #fff;
+	font-size: 3rem;
+	font-family: "Dancing Script", cursive;
+	z-index: 10;
+}
+.header__input {
+	width: 100%;
+	padding: 0.7em 1.4em;
+	margin-bottom: 2em;
+	font-size: 1rem;
+	background-color: #ffffffdc;
+	z-index: 10;
+}
+.drink-list {
+	padding: 2em 4em;
+}
+.drink-list__title {
+	padding: 2em 0;
+	font-size: 1.6rem;
+}
+.drink-list__list {
+	padding-bottom: 3em;
+	font-size: 1.6rem;
+	list-style: none;
+}
+.drink-list__list li {
+	padding: 0.3em 1.2em;
+	border-bottom: 1px solid #989898;
+}
+.drink-list__list li:last-child {
+	border-bottom: none;
+}
+
+.hide {
+	display: none;
+}
+.show {
+	display: block;
+}
